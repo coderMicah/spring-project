@@ -8,16 +8,18 @@
 </head>
 
 <body>
-    <form>
-        Welcome ${name}
+    <pre>${errorMessage}</pre>
+    <form action="login" method="post">
+
         <div>
-            <label for="email">Email</label>
-            <input name="email" type="text">
+            <label for="name">name</label>
+            <input name="name" type="text">
         </div>
         <div>
             <label for="password">Password</label>
             <input name="password" type="password">
         </div>
+        <button type="submit">Submit</button>
     </form>
 </body>
 
