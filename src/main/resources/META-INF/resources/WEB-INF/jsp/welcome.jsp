@@ -9,7 +9,9 @@
 
 <body>
     <h1>Welcome ${name}</h1>
-
+    <div>
+        <a href="/todos">Manage </a>Todos
+    </div>
 </body>
 
 </html>
