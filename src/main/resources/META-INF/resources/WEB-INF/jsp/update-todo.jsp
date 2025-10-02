@@ -18,9 +18,9 @@
                         <div class="card shadow-lg border-0 rounded-3">
                             <div class="card-body p-4">
 
-                                <h2 class="text-center mb-4 text-primary">Add Todo</h2>
+                                <h2 class="text-center mb-4 text-primary">Update Todo</h2>
 
-                                <form:form class="needs-validation" action="add-todo" method="post"
+                                <form:form class="needs-validation" action="update-todo" method="post"
                                     modelAttribute="todo">
 
                                     <!-- Description -->
@@ -49,7 +49,7 @@
 
                                     <!-- Submit Button -->
                                     <div class="d-grid">
-                                        <button class="btn btn-success btn-lg" type="submit">Add Todo</button>
+                                        <button class="btn btn-success btn-lg" type="submit">Update Todo</button>
                                     </div>
 
                                 </form:form>
@@ -59,6 +59,7 @@
                     </div>
                 </div>
             </div>
+
         </body>
 
         </html>
