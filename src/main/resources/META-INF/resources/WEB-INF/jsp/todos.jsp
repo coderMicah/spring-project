@@ -4,7 +4,7 @@
         <%@ include file="/WEB-INF/jsp/fragments/navbar.jspf" %>
 
             <div class="container">
-                <h1>Your Todos</h1>
+                <h1 class="my-4">${name}'s Todos</h1>
                 <table class="table table-striped table-bordered">
                     <thead class="table-dark">
                         <tr>

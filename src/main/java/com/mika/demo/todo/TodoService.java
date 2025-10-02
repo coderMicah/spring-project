@@ -20,7 +20,9 @@ public class TodoService {
     }
 
     public List<Todo> findByUsername(String username) {
-        return todos;
+
+        Predicate<? super Todo> predicate = todo -> todo.getUsername().equals(username);
+        return todos.stream().filter(predicate).toList();
     }
 
     public void add(String username, String description, LocalDate startDate, boolean status) {
@@ -46,4 +48,5 @@ public class TodoService {
         todos.add(todo);
 
     }
+
 }
