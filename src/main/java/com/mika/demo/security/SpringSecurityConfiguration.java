@@ -19,9 +19,27 @@ public class SpringSecurityConfiguration {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http.authorizeHttpRequests(auth -> auth.anyRequest().authenticated());
+
+        // --- FIX: Explicitly permit access to public paths and resources ---
+        http.authorizeHttpRequests(auth -> auth
+                // Allow access to static resources (CSS, JS, images)
+                // Note: If you use the root path '/' for your home page, you may need to permit
+                // that too.
+                .requestMatchers("/webjars/**", "/css/**", "/js/**", "/images/**").permitAll()
+                // Allow access to login, logout, and error pages
+                .requestMatchers("/login", "/logout", "/error").permitAll()
+                // Allow H2 console for development (since you enable it in
+                // application.properties)
+                .requestMatchers("/h2-console/**").permitAll()
+                // All other requests must be authenticated
+                .anyRequest().authenticated());
+
         http.formLogin(withDefaults());
 
+        // We can remove these headers/frameOptions related lines if H2 console is not
+        // used in production,
+        // but keeping them for now as you explicitly used them for H2/JSP
+        // compatibility.
         http.csrf(csrf -> csrf.disable());
         http.headers(headers -> headers.frameOptions(frame -> frame.disable()));
 
