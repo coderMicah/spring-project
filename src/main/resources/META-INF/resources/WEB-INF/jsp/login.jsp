@@ -1,31 +1,47 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-    <!DOCTYPE html>
-    <html lang="en">
+<%@include file="/WEB-INF/jsp/fragments/header.jspf" %>
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="/webjars/bootstrap/5.3.2/css/bootstrap.min.css">
-
-        <title>Login</title>
-    </head>
-
-    <body>
+    <body class="bg-light">
         <div class="container">
-            <h1>Login</h1>
-            <pre>${errorMessage}</pre>
-            <form class="form" action="login" method="post">
+            <div class="row justify-content-center">
+                <div class="col-md-6 col-lg-4">
+                    <!-- Card for login form -->
+                    <div class="card shadow-lg mt-5">
+                        <div class="card-body p-4">
+                            <h2 class="card-title text-center mb-4 text-primary">Login</h2>
 
-                <div class="form-group">
-                    <label for="name">name</label>
-                    <input class="form-control" name="name" type="text">
+                            <!-- Display error message -->
+                            <c:if test="${not empty errorMessage}">
+                                <div class="alert alert-danger" role="alert">
+                                    ${errorMessage}
+                                </div>
+                            </c:if>
+
+                            <form action="login" method="post">
+
+                                <!-- Username -->
+                                <div class="mb-3">
+                                    <label for="name" class="form-label">Name</label>
+                                    <input class="form-control form-control-lg" name="name" type="text"
+                                        placeholder="Enter your name" required>
+                                </div>
+
+                                <!-- Password -->
+                                <div class="mb-3">
+                                    <label for="password" class="form-label">Password</label>
+                                    <input class="form-control form-control-lg" name="password" type="password"
+                                        placeholder="Enter your password" required>
+                                </div>
+
+                                <!-- Submit button -->
+                                <div class="d-grid">
+                                    <button class="btn btn-primary btn-lg" type="submit">Login</button>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
                 </div>
-                <div class="form-group mt-3">
-                    <label for="password">Password</label>
-                    <input class="form-control" name="password" type="password">
-                </div>
-                <button class="mt-3 btn btn-primary" type="submit">Submit</button>
-            </form>
+            </div>
         </div>
     </body>
 
