@@ -2,13 +2,19 @@ package com.mika.demo.todo;
 
 import java.time.LocalDate;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
 import jakarta.validation.constraints.FutureOrPresent;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import jakarta.validation.constraints.NotNull;
 
+@Entity
 public class Todo {
 
+    @Id
+    @GeneratedValue
     private int id;
 
     // @NotBlank(message = "Username is required")
